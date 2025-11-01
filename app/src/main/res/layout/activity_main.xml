@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Header -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Freezer - Weather Alert"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Current Weather -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginBottom="24dp"
+            android:padding="16dp"
+            android:background="@drawable/card_background">
+
+            <TextView
+                android:id="@+id/locationText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Getting location..."
+                android:textSize="18sp"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/currentTempText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="--°F"
+                android:textSize="32sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/weatherDescriptionText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Loading..."
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <!-- Hourly Forecast Section -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="24-Hour Forecast"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/hourlyForecastRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Combined Alert Settings Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:background="@drawable/card_background"
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Weather Alert Settings"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Freeze Alert Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8px">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Freeze Alerts"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <Switch
+                    android:id="@+id/freezeAlertToggle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Evening notification if temperatures drop below freezing overnight"
+                android:textSize="14sp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#E0E0E0"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Umbrella Alert Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8px">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Umbrella Alerts"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <Switch
+                    android:id="@+id/umbrellaAlertToggle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Morning notification if rain expected during commute hours"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <!-- Progress and Retry -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="visible"
+            android:layout_marginTop="16dp" />
+
+        <Button
+            android:id="@+id/retryButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Retry"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:layout_marginTop="8dp" />
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:gravity="center"
+    android:background="@drawable/card_background">
+
+    <TextView
+        android:id="@+id/timeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="6 PM"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tempText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="12°C"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginTop="4dp" />
+
+    <TextView
+        android:id="@+id/weatherText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cloudy"
+        android:textSize="12sp"
+        android:layout_marginTop="2dp" />
+
+    <TextView
+        android:id="@+id/precipText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="30%"
+        android:textSize="10sp"
+        android:textColor="#2196F3"
+        android:layout_marginTop="2dp" />
+
+</LinearLayout>
