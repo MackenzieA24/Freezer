@@ -1,13 +1,12 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
-    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
 android {
     namespace = "com.example.freezer"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 36
 
     buildFeatures {
         buildConfig = true
@@ -19,11 +18,16 @@ android {
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField("String", "WEATHER_API_KEY", "\"${project.findProperty("WEATHER_API_KEY") ?: "MISSING_API_KEY"}\"")
-
+        // Read from secret.properties
+        val secretsFile = rootProject.file("secret.properties")
+        val secrets = Properties()
+        if (secretsFile.exists()) {
+            secrets.load(secretsFile.inputStream())
+        }
+        val apiKey = secrets.getProperty("WEATHER_API_KEY", "MISSING_API_KEY")
+        buildConfigField("String", "WEATHER_API_KEY", "\"$apiKey\"")
     }
 
     buildTypes {
@@ -35,6 +39,7 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8

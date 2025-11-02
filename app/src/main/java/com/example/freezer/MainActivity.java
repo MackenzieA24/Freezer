@@ -19,6 +19,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.work.Data;
 import androidx.work.ExistingPeriodicWorkPolicy;
 import androidx.work.PeriodicWorkRequest;
 import androidx.work.WorkManager;
@@ -236,6 +237,7 @@ public class MainActivity extends AppCompatActivity {
                 .putFloat("last_lat", (float) lat)
                 .putFloat("last_lon", (float) lon)
                 .apply();
+
 
         // 6 PM check
         Calendar calendar = Calendar.getInstance();
